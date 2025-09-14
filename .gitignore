@@ -1,0 +1,56 @@
+# --- Node / workspace ---
+node_modules/
+# npm pack artifacts
+*.tgz
+
+# --- Build outputs ---
+dist/
+build/
+out/
+
+# --- TypeScript ---
+*.tsbuildinfo
+**/tsconfig.tsbuildinfo
+
+# --- Logs ---
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# --- Environment files ---
+.env
+.env.*
+!.env.example   # サンプルはコミットする
+
+# --- Coverage / reports ---
+coverage/
+.nyc_output/
+
+# --- Caches / temp ---
+.eslintcache
+.cache/
+.tmp/
+ts-node/
+.pnpm-store/
+
+# --- Editors / OS cruft ---
+.vscode/
+.idea/
+.history/
+*.swp
+.DS_Store
+Thumbs.db
+
+# --- PIDs / debug artifacts ---
+pids/
+*.pid
+*.pid.lock
+*.seed
+.node_repl_history
+*.stackdump
+*.cpuprofile
+*.heapsnapshot
