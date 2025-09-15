@@ -11,9 +11,7 @@
 		"deploy:guild": "COMMAND_SCOPE=guild node --require dotenv/config dist/util/deploy.js",
 		"format": "prettier --write . && eslint --ext .ts --fix --format=pretty src",
 		"start": "node --require dotenv/config dist/index.js",
-		"dev:watch": "tsc -w",
-		"dev:run": "node --require dotenv/config --watch dist/index.js",
-		"dev": "npm-run-all -p dev:watch dev:run"
+		"dev": "sh -c 'npm run build -- --watch & node --require dotenv/config --watch dist/index.js'"
 	},
 	"dependencies": {
 		"@discordjs/core": "^2.1.1",
@@ -27,9 +25,7 @@
 		"eslint-config-neon": "^0.2.7",
 		"eslint-formatter-compact": "^8.40.0",
 		"eslint-formatter-pretty": "^6.0.1",
-		"npm-run-all": "^4.1.5",
 		"prettier": "^3.5.3",
-		"tsx": "^4.19.2",
 		"typescript": "~5.5.4",
 		"zod": "^3.24.1"
 	},
