@@ -1,6 +1,5 @@
 import type { PathLike } from 'node:fs';
 import { readdir, stat } from 'node:fs/promises';
-import { extname } from 'node:path';
 import { URL } from 'node:url';
 import type { Command } from '../commands/index.js';
 import { predicate as commandPredicate } from '../commands/index.js';
@@ -52,12 +51,8 @@ export async function loadStructures<T>(
 			continue;
 		}
 
-		// If the file is index.js/ts or the file does not end with .js/.ts, skip the file
-		const ext = extname(file);
-		const isIndex = file === 'index.js' || file === 'index.ts';
-		const allowJs = ext === '.js';
-		const allowTs = ext === '.ts' && process.env.NODE_ENV !== 'production';
-		if (isIndex || !(allowJs || allowTs)) {
+		// If the file is index.js or the file does not end with .js, skip the file
+		if (file === 'index.js' || !file.endsWith('.js')) {
 			continue;
 		}
 
