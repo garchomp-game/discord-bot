@@ -15,13 +15,14 @@ export default {
 		],
 	},
 	async execute(interaction: ChatInputCommandInteraction) {
+		await interaction.deferReply();
+
 		const messageCount = interaction.options.getInteger('messages') ?? 10;
 
 		// メッセージの取得
 		if (!interaction.channel) {
-			await interaction.reply({
+			await interaction.editReply({
 				content: 'チャンネルでのみ使用可能です。',
-				ephemeral: true,
 			});
 			return;
 		}
@@ -49,7 +50,7 @@ export default {
 		].join('\n');
 
 		// 応答を送信
-		await interaction.reply({
+		await interaction.editReply({
 			content: summary,
 		});
 	},

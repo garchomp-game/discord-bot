@@ -15,6 +15,8 @@ export default {
 		],
 	},
 	async execute(interaction: ChatInputCommandInteraction) {
+		await interaction.deferReply();
+
 		const theme = interaction.options.getString('theme', true);
 
 		// アイデア生成のテンプレート
@@ -45,7 +47,7 @@ export default {
 		].join('\n');
 
 		// 応答を送信
-		await interaction.reply({
+		await interaction.editReply({
 			content: response,
 		});
 	},
